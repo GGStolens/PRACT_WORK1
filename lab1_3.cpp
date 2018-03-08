@@ -1,5 +1,6 @@
-#include <iostream>
+#include <stdio.h>
 #include <vector>
+#include <iterator>
 
 void rotate(int k, int n, std::vector <int> &v) {
 	for (int i = 0; i < k; ++i) {
@@ -12,13 +13,16 @@ void rotate(int k, int n, std::vector <int> &v) {
 
 int main() {
 	int n, k;
-	std::cin >> k >> n;
-	std::vector <int> v(n);
-	for (int i = 0; i < n; i++)
-		std::cin >> v[i];
+	scanf("%d%d", &k, &n);
+	std::vector <int> v;
+	for (int i = 0; i < n; i++){
+		int x;
+		scanf("%d", &x);
+		v.push_back(x);
+	}
 	rotate(k, n, v);
-	for (int i = 0; i < n; i++)
-		std::cout << v[i] << " ";
-	std::cout << "\n";
+	for (auto i = v.begin(); i < v.end(); i++)
+		printf("%d ", *i);
+	printf("\n");
 	return 0;
 }
